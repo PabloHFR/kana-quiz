@@ -1,0 +1,28 @@
+{
+  "name": "kana-quiz",
+  "version": "1.0.0",
+  "description": "Application to learn japanese kana",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PabloHFR/kana-quiz.git"
+  },
+  "author": "Pablo H. F. Roscoche",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PabloHFR/kana-quiz/issues"
+  },
+  "homepage": "https://github.com/PabloHFR/kana-quiz#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.0",
+    "parcel": "^2.8.0",
+    "sass": "^1.56.1"
+  },
+  "dependencies": {
+    "wanakana": "^5.0.2"
+  }
+}

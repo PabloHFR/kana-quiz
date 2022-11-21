@@ -1,0 +1,41 @@
+// ************ GENERAL STYLES ************
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // root font-size: 10px/16px * 100 = 62.5%
+}
+
+body {
+  background-color: #fff;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.testediv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6.2rem;
+  width: 6.2rem;
+  background-color: red;
+  border-radius: 1000px;
+  text-transform: uppercase;
+}
+
+.teste {
+  font-weight: bolder;
+  font-size: 3rem;
+  color: #fff;
+  // position: absolute;
+}
