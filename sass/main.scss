@@ -16,26 +16,104 @@ body {
   box-sizing: border-box;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 6px;
+// ********** HEADER *********
+
+header {
+  margin: 2rem 0 8rem 0;
 }
 
-.testediv {
+.title {
+  font-size: 4.8rem;
+  text-align: center;
+  color: rgb(30, 132, 228);
+  margin-bottom: 2rem;
+}
+
+.instructions {
+  margin: 0 auto;
+  max-width: 36rem;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+// ********** MAIN CONTENT **********
+// ********** Kana Option Buttons *********
+
+.kana-option-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.hiragana-option-button,
+.katakana-option-button {
+  background-color: transparent;
+  color: rgb(30, 132, 228);
+  padding: 1.5rem 12rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border: 2px solid rgb(30, 132, 228);
+}
+
+.hiragana-option-button:active,
+.katakana-option-button:active {
+  background-color: rgb(30, 132, 228);
+  color: white;
+}
+
+// ********** Kana Columns Grid **********
+
+.kana-column-options {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.column-option-title {
+  color: rgb(30, 132, 228);
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.select-all-button {
+  background-color: transparent;
+  color: rgb(30, 132, 228);
+  padding: 1rem 6rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border: 2px solid rgb(30, 132, 228);
+  margin-bottom: 1rem;
+}
+
+.column-options-grid {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 6.2rem;
-  width: 6.2rem;
-  background-color: red;
-  border-radius: 1000px;
-  text-transform: uppercase;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+
+  button {
+    width: 10%;
+    background-color: transparent;
+    color: rgb(30, 132, 228);
+    padding: 1.5rem 12rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border: 2px solid rgb(30, 132, 228);
+  }
 }
 
-.teste {
-  font-weight: bolder;
-  font-size: 3rem;
-  color: #fff;
-  // position: absolute;
+.start-quiz-button {
+  display: block;
+  background-color: transparent;
+  color: rgb(30, 132, 228);
+  padding: 1.5rem 12rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border: 2px solid rgb(30, 132, 228);
+  margin: 0 auto;
+  text-align: center;
 }

@@ -11,21 +11,23 @@
     <title>Kana quiz</title>
   </head>
   <body>
-    <main>
-      <h1>Aprenda o Kana</h1>
-      <p>
+    <header>
+      <h1 class="title">Aprenda o Kana</h1>
+      <p class="instructions">
         Selecione qual silabário deseja praticar e quais colunas. Recomendamos
         que pratique uma coluna por vez e adicione mais conforme evolua.
       </p>
+    </header>
+    <main>
       <div class="kana-option-buttons">
-        <button>Pratique Hiragana</button>
-        <button>Pratique Katakana</button>
+        <button class="hiragana-option-button">Pratique Hiragana</button>
+        <button class="katakana-option-button">Pratique Katakana</button>
       </div>
       <div class="kana-column-options">
         <div>
-          <h2>Kana Principal</h2>
-          <button>Selecionar Todos</button>
-          <div>
+          <h2 class="column-option-title">Kana Principal</h2>
+          <button class="select-all-button">Selecionar Todos</button>
+          <div class="column-options-grid">
             <button>a</button>
             <button>ka</button>
             <button>sa</button>
@@ -39,34 +41,36 @@
           </div>
         </div>
         <div>
-          <h2>Kana Dakuten</h2>
-          <button>Selecionar Todos</button>
-          <div>
+          <h2 class="column-option-title">Kana Dakuten</h2>
+          <button class="select-all-button">Selecionar Todos</button>
+          <div class="column-options-grid">
             <button>ga</button>
             <button>za</button>
             <button>da</button>
             <button>ba</button>
             <button>pa</button>
           </div>
-          <div>
-            <h2>Combinações Kana</h2>
-            <button>Selecionar Todos</button>
-            <div>
-              <button>kya</button>
-              <button>cha</button>
-              <button>hya</button>
-              <button>rya</button>
-              <button>ja</button>
-              <button>bya</button>
-              <button>sha</button>
-              <button>nya</button>
-              <button>mya</button>
-              <button>gya</button>
-              <button>dya</button>
-              <button>pya</button>
-            </div>
+        </div>
+        <div>
+          <h2 class="column-option-title">Combinações Kana</h2>
+          <button class="select-all-button">Selecionar Todos</button>
+          <div class="column-options-grid">
+            <button>kya</button>
+            <button>cha</button>
+            <button>hya</button>
+            <button>rya</button>
+            <button>ja</button>
+            <button>bya</button>
+            <button>sha</button>
+            <button>nya</button>
+            <button>mya</button>
+            <button>gya</button>
+            <button>dya</button>
+            <button>pya</button>
+          </div>
+        </div>
       </div>
-      <button class="start-quiz-btn">Começar o Quiz!</button>
+      <button class="start-quiz-button">Começar o Quiz!</button>
     </main>
   </body>
 </html>
