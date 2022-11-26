@@ -43,6 +43,7 @@ header {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
+  cursor: pointer;
 }
 
 .hiragana-option-button,
@@ -53,6 +54,7 @@ header {
   font-size: 1.6rem;
   font-weight: bold;
   border: 2px solid rgb(30, 132, 228);
+  cursor: pointer;
 }
 
 .hiragana-option-button:active,
@@ -86,6 +88,7 @@ header {
   font-weight: bold;
   border: 2px solid rgb(30, 132, 228);
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 .column-options-grid {
@@ -103,6 +106,12 @@ header {
     font-size: 1.6rem;
     font-weight: bold;
     border: 2px solid rgb(30, 132, 228);
+    cursor: pointer;
+  }
+
+  .checked-column {
+    background-color: rgb(30, 132, 228);
+    color: white;
   }
 }
 
@@ -116,4 +125,11 @@ header {
   border: 2px solid rgb(30, 132, 228);
   margin: 0 auto;
   text-align: center;
+  cursor: pointer;
+}
+
+.checked-all,
+.checked-kana {
+  background-color: rgb(30, 132, 228);
+  color: white;
 }
