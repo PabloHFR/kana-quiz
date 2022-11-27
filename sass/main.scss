@@ -133,3 +133,44 @@ header {
   background-color: rgb(30, 132, 228);
   color: white;
 }
+
+// Quiz Section
+
+.quiz-section {
+  width: 90%;
+  margin: 10rem auto;
+}
+
+.quiz-boxes-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-box {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 4rem;
+  width: 4rem;
+  background-color: rgb(30, 132, 228);
+  padding: 10rem 8rem;
+  border-radius: 2.4rem;
+}
+
+.quiz-box-label {
+  font-size: 4.8rem;
+  color: #fff;
+}
+
+.quiz-box-input {
+  width: 10rem;
+  padding: 1rem 0;
+
+  font-size: 28px;
+  color: #333;
+  text-align: center;
+}
