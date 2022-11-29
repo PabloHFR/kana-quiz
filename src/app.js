@@ -36,6 +36,29 @@ function getSelectedKanas() {
   console.log(selectedKanasArray);
 }
 
+// Function for generating markup for individual quiz-boxes
+function generateMarkup(kana) {
+  return `
+    <li class="quiz-box">
+      <label class="quiz-box-label">${kana}</label>
+        <input
+          class="quiz-box-input"
+          type="text"
+          maxlength="3"
+          minlength="1"
+        />
+    </li>
+  `;
+}
+
+// Function for inserting quiz-boxes of selected kanas in list element
+function displayQuizBoxes() {
+  getSelectedKanas();
+  selectedKanasArray.forEach((kana) => {
+    quizBoxesListElement.insertAdjacentHTML("beforeend", generateMarkup(kana));
+  });
+}
+
 // ******* Event Listeners *******
 
 // Select all buttons logic for adding checked styles in all buttons from that column
@@ -85,4 +108,4 @@ katakanaOptionButtonElement.addEventListener("click", function () {
 });
 
 // Start Quiz Button
-startQuizButtonElement.addEventListener("click", getSelectedKanas);
+startQuizButtonElement.addEventListener("click", displayQuizBoxes);
