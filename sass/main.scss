@@ -177,3 +177,16 @@ header {
   color: #333;
   text-align: center;
 }
+
+.correct {
+  background-color: #52d327;
+
+  input {
+    color: #777;
+    pointer-events: none;
+  }
+}
+
+.wrong {
+  background-color: #d32727;
+}
