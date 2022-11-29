@@ -1,7 +1,7 @@
 import { toHiragana, toKatakana } from "wanakana";
+import { allKanaObject } from "./data";
 
-// Selectors
-const checkedColumns = document.querySelectorAll(".checked-column");
+// ******* Selectors *******
 const kanaColumnButtonElements = document.querySelectorAll(".column-button");
 const selectAllButtonElements = document.querySelectorAll(".select-all-button");
 const mainColumnKanaButtonElements = document.querySelectorAll(".main-column");
@@ -17,55 +17,51 @@ const hiraganaOptionButtonElement = document.querySelector(
 const katakanaOptionButtonElement = document.querySelector(
   ".katakana-option-button"
 );
+const startQuizButtonElement = document.querySelector(".start-quiz-button");
 
-// Functions
+const quizBoxesListElement = document.querySelector(".quiz-boxes-list");
 
-// Data
+// ******* Variables *******
+let selectedKanasArray = [];
 
-// Main Kana
-const mainKanaObject = {
-  aKana: ["a", "i", "u", "e", "o"],
-  kaKana: ["ka", "ki", "ku", "ke", "ko"],
-  saKana: ["sa", "shi", "su", "se", "so"],
-  taKana: ["ta", "chi", "tsu", "te", "to"],
-  naKana: ["na", "ni", "nu", "ne", "no"],
-  haKana: ["ha", "hi", "fu", "he", "ho"],
-  maKana: ["ma", "mi", "mu", "me", "mo"],
-  yaKana: ["ya", "yu", "yo"],
-  raKana: ["ra", "ri", "ru", "re", "ro"],
-  waKana: ["wa", "wo", "n"],
-};
+// ******* Functions *******
+// Function for getting an array of user selected kana columns
+function getSelectedKanas() {
+  kanaColumnButtonElements.forEach((checkedColumn) => {
+    if (checkedColumn.classList.contains("checked-column")) {
+      selectedKanasArray.push(allKanaObject[`${checkedColumn.dataset.column}`]);
+    }
+  });
+  selectedKanasArray = selectedKanasArray.flat();
+  console.log(selectedKanasArray);
+}
 
-// Dakuten Kana
-const dakutenKanaObject = {
-  gaKana: ["ga", "gi", "gu", "ge", "go"],
-  zaKana: ["za", "ji", "zu", "ze", "zo"],
-  daKana: ["da", "zi", "zu", "de", "do"],
-  baKana: ["ba", "bi", "bu", "be", "bo"],
-  paKana: ["pa", "pi", "pu", "pe", "po"],
-};
+// Function for generating markup for individual quiz-boxes
+function generateMarkup(kana) {
+  return `
+    <li class="quiz-box">
+      <label class="quiz-box-label">${toHiragana(kana)}</label>
+        <input
+          class="quiz-box-input"
+          type="text"
+          maxlength="3"
+          minlength="1"
+        />
+    </li>
+  `;
+}
 
-// Combination Kana
-const combinationKanaObject = {
-  kyaKana: ["kya", "kyu", "kyo"],
-  gyaKana: ["gya", "gyu", "gyo"],
-  shaKana: ["sha", "shu", "sho"],
-  jyaKana: ["jya", "jyu", "jyo"],
-  chaKana: ["cha", "chu", "cho"],
-  dyaKana: ["dya", "dyu", "dyo"],
-  nyaKana: ["nya", "nyu", "nyo"],
-  hyaKana: ["hya", "hyu", "hyo"],
-  byaKana: ["bya", "byu", "byo"],
-  pyaKana: ["pya", "pyu", "pyo"],
-  myaKana: ["mya", "myu", "myo"],
-  ryaKana: ["rya", "ryu", "ryo"],
-};
+// Function for inserting quiz-boxes of selected kanas in list element
+function displayQuizBoxes() {
+  getSelectedKanas();
+  selectedKanasArray.forEach((kana) => {
+    quizBoxesListElement.insertAdjacentHTML("beforeend", generateMarkup(kana));
+  });
+}
 
-// Event Listeners
-checkedColumns.forEach((checkedColumn) => {
-  console.log(checkedColumn);
-});
+// ******* Event Listeners *******
 
+// Select all buttons logic for adding checked styles in all buttons from that column
 selectAllButtonElements.forEach((selectAllButton) => {
   selectAllButton.addEventListener("click", function (e) {
     const selectedColumn = e.target.nextElementSibling.children[0].classList[0];
@@ -93,12 +89,14 @@ selectAllButtonElements.forEach((selectAllButton) => {
   });
 });
 
+// Add checked button style for kana columns buttons
 kanaColumnButtonElements.forEach((kanaColumnButton) => {
   kanaColumnButton.addEventListener("click", function () {
     kanaColumnButton.classList.toggle("checked-column");
   });
 });
 
+// Select between Hiragana and Katakana Buttons
 hiraganaOptionButtonElement.addEventListener("click", function () {
   hiraganaOptionButtonElement.classList.add("checked-kana");
   katakanaOptionButtonElement.classList.remove("checked-kana");
@@ -108,3 +106,6 @@ katakanaOptionButtonElement.addEventListener("click", function () {
   katakanaOptionButtonElement.classList.add("checked-kana");
   hiraganaOptionButtonElement.classList.remove("checked-kana");
 });
+
+// Start Quiz Button
+startQuizButtonElement.addEventListener("click", displayQuizBoxes);
