@@ -40,7 +40,7 @@ function getSelectedKanas() {
 function generateMarkup(kana) {
   return `
     <li class="quiz-box">
-      <label class="quiz-box-label">${kana}</label>
+      <label class="quiz-box-label">${toHiragana(kana)}</label>
         <input
           class="quiz-box-input"
           type="text"
