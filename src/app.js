@@ -19,6 +19,8 @@ const katakanaOptionButtonElement = document.querySelector(
 );
 const startQuizButtonElement = document.querySelector(".start-quiz-button");
 
+const quizBoxesListElement = document.querySelector(".quiz-boxes-list");
+
 // ******* Variables *******
 let selectedKanasArray = [];
 
@@ -28,9 +30,10 @@ function getSelectedKanas() {
   kanaColumnButtonElements.forEach((checkedColumn) => {
     if (checkedColumn.classList.contains("checked-column")) {
       selectedKanasArray.push(allKanaObject[`${checkedColumn.dataset.column}`]);
-      console.log(selectedKanasArray.flat());
     }
   });
+  selectedKanasArray = selectedKanasArray.flat();
+  console.log(selectedKanasArray);
 }
 
 // ******* Event Listeners *******
