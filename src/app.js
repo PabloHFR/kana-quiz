@@ -1,5 +1,6 @@
 import { toHiragana, toKatakana } from "wanakana";
 import { allKanaObject } from "./data";
+import { shuffleArray } from "./shuffle";
 
 // ******* Selectors *******
 const kanaColumnButtonElements = document.querySelectorAll(".column-button");
@@ -51,9 +52,10 @@ function generateMarkup(kana) {
   `;
 }
 
-// Function for inserting quiz-boxes of selected kanas in list element
+// Function for inserting quiz-boxes of shuffled selected kanas in list element
 function displayQuizBoxes() {
   getSelectedKanas();
+  shuffleArray(selectedKanasArray);
   selectedKanasArray.forEach((kana) => {
     quizBoxesListElement.insertAdjacentHTML("beforeend", generateMarkup(kana));
   });
