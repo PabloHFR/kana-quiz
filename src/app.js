@@ -21,6 +21,7 @@ const quizBoxesListElement = document.querySelector(".quiz-boxes-list");
 
 // ******* Variables *******
 let selectedKanasArray = [];
+let isHiragana = true;
 
 // ******* Init *******
 displayHomePage();
@@ -41,7 +42,9 @@ function getSelectedKanas() {
 function generateMarkup(kana) {
   return `
     <li class="quiz-box">
-      <label class="quiz-box-label">${toHiragana(kana)}</label>
+      <label class="quiz-box-label">${
+        isHiragana === true ? toHiragana(kana) : toKatakana(kana)
+      }</label>
         <input
           class="quiz-box-input"
           type="text"
@@ -67,7 +70,7 @@ function displayQuizBoxes() {
     getQuizBoxInputsEvents();
 
     instructionsElement.textContent =
-      "Escreva o Romaji na caixa de texto. Se errar, você pode tentar outra vez até acertar. Clique no título acima para retornar à página inicial.";
+      "Escreva o Romaji na caixa de texto e aperte Enter ou Tab. Se errar, você pode continuar tentando. Clique no título acima para retornar à página inicial.";
   } else {
     alert("Selecione uma das colunas para continuar!");
   }
@@ -97,34 +100,34 @@ function displayHomePage() {
             <button class="select-all-button">Selecionar Todos</button>
             <div class="column-options-grid">
               <button class="main-column column-button" data-column="a">
-              ${toHiragana("a")}/a
+              ${toHiragana("a")} / ${toKatakana("a")} / a
               </button>
               <button class="main-column column-button" data-column="ka">
-              ${toHiragana("ka")}/ka
+              ${toHiragana("ka")} / ${toKatakana("ka")} / ka
               </button>
               <button class="main-column column-button" data-column="sa">
-              ${toHiragana("sa")}/sa
+              ${toHiragana("sa")} / ${toKatakana("sa")} / sa
               </button>
               <button class="main-column column-button" data-column="ta">
-              ${toHiragana("ta")}/ta
+              ${toHiragana("ta")} / ${toKatakana("ta")} / ta
               </button>
               <button class="main-column column-button" data-column="na">
-              ${toHiragana("na")}/na
+              ${toHiragana("na")} / ${toKatakana("na")} / na
               </button>
               <button class="main-column column-button" data-column="ha">
-              ${toHiragana("ha")}/ha
+              ${toHiragana("ha")} / ${toKatakana("ha")} / ha
               </button>
               <button class="main-column column-button" data-column="ma">
-              ${toHiragana("ma")}/ma
+              ${toHiragana("ma")} / ${toKatakana("ma")} / ma
               </button>
               <button class="main-column column-button" data-column="ya">
-              ${toHiragana("ya")}/ya
+              ${toHiragana("ya")} / ${toKatakana("ya")} / ya
               </button>
               <button class="main-column column-button" data-column="ra">
-              ${toHiragana("ra")}/ra
+              ${toHiragana("ra")} / ${toKatakana("ra")} / ra
               </button>
               <button class="main-column column-button" data-column="wa">
-              ${toHiragana("wa")}/wa
+              ${toHiragana("wa")} / ${toKatakana("wa")} / wa
               </button>
             </div>
           </div>
@@ -133,19 +136,19 @@ function displayHomePage() {
             <button class="select-all-button">Selecionar Todos</button>
             <div class="column-options-grid">
               <button class="dakuten-column column-button" data-column="ga">
-              ${toHiragana("ga")}/ga
+              ${toHiragana("ga")} / ${toKatakana("ga")} / ga
               </button>
               <button class="dakuten-column column-button" data-column="za">
-              ${toHiragana("za")}/za
+              ${toHiragana("za")} / ${toKatakana("za")} / za
               </button>
               <button class="dakuten-column column-button" data-column="da">
-              ${toHiragana("da")}/da
+              ${toHiragana("da")} / ${toKatakana("da")} / da
               </button>
               <button class="dakuten-column column-button" data-column="ba">
-              ${toHiragana("ba")}/ba
+              ${toHiragana("ba")} / ${toKatakana("ba")} / ba
               </button>
               <button class="dakuten-column column-button" data-column="pa">
-              ${toHiragana("pa")}/pa
+              ${toHiragana("pa")} / ${toKatakana("pa")} / pa
               </button>
             </div>
           </div>
@@ -157,70 +160,70 @@ function displayHomePage() {
                 class="combination-column column-button"
                 data-column="kya"
               >
-              ${toHiragana("kya")}/kya
+              ${toHiragana("kya")} / ${toKatakana("kya")} / kya
               </button>
               <button
                 class="combination-column column-button"
                 data-column="cha"
               >
-              ${toHiragana("cha")}/cha
+              ${toHiragana("cha")} / ${toKatakana("cha")} / cha
               </button>
               <button
                 class="combination-column column-button"
                 data-column="hya"
               >
-              ${toHiragana("hya")}/hya
+              ${toHiragana("hya")} / ${toKatakana("hya")} / hya
               </button>
               <button
                 class="combination-column column-button"
                 data-column="rya"
               >
-              ${toHiragana("rya")}/rya
+              ${toHiragana("rya")} / ${toKatakana("rya")} / rya
               </button>
               <button class="combination-column column-button" data-column="ja">
-              ${toHiragana("ja")}/ja
+              ${toHiragana("ja")} / ${toKatakana("ja")} / ja
               </button>
               <button
                 class="combination-column column-button"
                 data-column="bya"
               >
-              ${toHiragana("bya")}/bya
+              ${toHiragana("bya")} / ${toKatakana("bya")} / bya
               </button>
               <button
                 class="combination-column column-button"
                 data-column="sha"
               >
-              ${toHiragana("sha")}/sha
+              ${toHiragana("sha")} / ${toKatakana("sha")} / sha
               </button>
               <button
                 class="combination-column column-button"
                 data-column="nya"
               >
-              ${toHiragana("nya")}/nya
+              ${toHiragana("nya")} / ${toKatakana("nya")} / nya
               </button>
               <button
                 class="combination-column column-button"
                 data-column="mya"
               >
-              ${toHiragana("mya")}/mya
+              ${toHiragana("mya")} / ${toKatakana("mya")} / mya
               </button>
               <button
                 class="combination-column column-button"
                 data-column="gya"
               >
-              ${toHiragana("gya")}/gya
+              ${toHiragana("gya")} / ${toKatakana("gya")} / gya
               </button>
               <button
                 class="combination-column column-button"
                 data-column="dya"
               >
-              ${toHiragana("dya")}/dya
+              ${toHiragana("dya")} / ${toKatakana("dya")} / dya
               </button>
               <button
                 class="combination-column column-button"
                 data-column="pya"
               >
-              ${toHiragana("pya")}/pya
+              ${toHiragana("pya")} / ${toKatakana("pya")} / pya
               </button>
             </div>
           </div>
@@ -232,6 +235,7 @@ function displayHomePage() {
   mainHtmlElement.insertAdjacentHTML("afterbegin", markup);
   generateHomePageEvents();
 
+  isHiragana = true;
   instructionsElement.textContent =
     "Selecione qual silabário deseja praticar e quais colunas. Recomendamos que pratique uma coluna por vez e adicione mais conforme evolua.";
 }
@@ -296,11 +300,15 @@ function generateHomePageEvents() {
   hiraganaOptionButtonElement.addEventListener("click", function () {
     hiraganaOptionButtonElement.classList.add("checked-kana");
     katakanaOptionButtonElement.classList.remove("checked-kana");
+    isHiragana = true;
+    console.log(isHiragana);
   });
 
   katakanaOptionButtonElement.addEventListener("click", function () {
     katakanaOptionButtonElement.classList.add("checked-kana");
     hiraganaOptionButtonElement.classList.remove("checked-kana");
+    isHiragana = false;
+    console.log(isHiragana);
   });
 
   // Start Quiz Button
