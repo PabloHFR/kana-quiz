@@ -19,7 +19,7 @@ body {
 // ********** HEADER *********
 
 header {
-  margin: 2rem 0 8rem 0;
+  margin: 2rem 0 6rem 0;
 }
 
 .title {
@@ -27,6 +27,7 @@ header {
   text-align: center;
   color: rgb(30, 132, 228);
   margin-bottom: 2rem;
+  cursor: pointer;
 }
 
 .instructions {
@@ -102,7 +103,8 @@ header {
     width: 10%;
     background-color: transparent;
     color: rgb(30, 132, 228);
-    padding: 1.5rem 12rem;
+    width: 22rem;
+    padding: 1.8rem 0rem;
     font-size: 1.6rem;
     font-weight: bold;
     border: 2px solid rgb(30, 132, 228);
@@ -138,7 +140,7 @@ header {
 
 .quiz-section {
   width: 90%;
-  margin: 10rem auto;
+  margin: 0 auto;
 }
 
 .quiz-boxes-list {
