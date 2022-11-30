@@ -14,12 +14,15 @@ let hiraganaOptionButtonElement;
 let katakanaOptionButtonElement;
 let startQuizButtonElement;
 const mainHtmlElement = document.querySelector(".main");
+const titleElement = document.querySelector(".title");
+const instructionsElement = document.querySelector(".instructions");
 
 const quizBoxesListElement = document.querySelector(".quiz-boxes-list");
 
 // ******* Variables *******
 let selectedKanasArray = [];
 
+// ******* Init *******
 displayHomePage();
 
 // ******* Functions *******
@@ -32,7 +35,6 @@ function getSelectedKanas() {
     }
   });
   selectedKanasArray = selectedKanasArray.flat();
-  console.log(selectedKanasArray);
 }
 
 // Function for generating markup for individual quiz-boxes
@@ -53,12 +55,27 @@ function generateMarkup(kana) {
 // Function for inserting quiz-boxes of shuffled selected kanas in list element
 function displayQuizBoxes() {
   getSelectedKanas();
-  deleteHomePage();
-  shuffleArray(selectedKanasArray);
-  selectedKanasArray.forEach((kana) => {
-    quizBoxesListElement.insertAdjacentHTML("beforeend", generateMarkup(kana));
-  });
-  getQuizBoxInputsEvents();
+  if (selectedKanasArray.length !== 0) {
+    deleteHomePage();
+    shuffleArray(selectedKanasArray);
+    selectedKanasArray.forEach((kana) => {
+      quizBoxesListElement.insertAdjacentHTML(
+        "beforeend",
+        generateMarkup(kana)
+      );
+    });
+    getQuizBoxInputsEvents();
+
+    instructionsElement.textContent =
+      "Escreva o Romaji na caixa de texto. Se errar, você pode tentar outra vez até acertar. Clique no título acima para retornar à página inicial.";
+  } else {
+    alert("Selecione uma das colunas para continuar!");
+  }
+}
+
+function deleteQuizPage() {
+  mainHtmlElement.children[0].children[0].innerHTML = "";
+  selectedKanasArray = [];
 }
 
 function deleteHomePage() {
@@ -214,6 +231,9 @@ function displayHomePage() {
 
   mainHtmlElement.insertAdjacentHTML("afterbegin", markup);
   generateHomePageEvents();
+
+  instructionsElement.textContent =
+    "Selecione qual silabário deseja praticar e quais colunas. Recomendamos que pratique uma coluna por vez e adicione mais conforme evolua.";
 }
 
 function generateHomePageEvents() {
@@ -286,3 +306,11 @@ function generateHomePageEvents() {
   // Start Quiz Button
   startQuizButtonElement.addEventListener("click", displayQuizBoxes);
 }
+
+// ****** Event Listeners ******
+titleElement.addEventListener("click", function () {
+  if (!document.querySelector(".select-box-section")) {
+    deleteQuizPage();
+    displayHomePage();
+  }
+});
