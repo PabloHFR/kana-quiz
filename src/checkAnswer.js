@@ -17,7 +17,9 @@ export function getQuizBoxInputsEvents() {
 function checkAnswer(inputElement) {
   if (
     toHiragana(inputElement.value) ===
-    inputElement.parentElement.children[0].textContent
+      inputElement.parentElement.children[0].textContent ||
+    toKatakana(inputElement.value) ===
+      inputElement.parentElement.children[0].textContent
   ) {
     inputElement.parentElement.classList.remove("wrong");
     inputElement.parentElement.classList.add("correct");
