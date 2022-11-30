@@ -53,11 +53,16 @@ function generateMarkup(kana) {
 // Function for inserting quiz-boxes of shuffled selected kanas in list element
 function displayQuizBoxes() {
   getSelectedKanas();
+  deleteHomePage();
   shuffleArray(selectedKanasArray);
   selectedKanasArray.forEach((kana) => {
     quizBoxesListElement.insertAdjacentHTML("beforeend", generateMarkup(kana));
   });
   getQuizBoxInputsEvents();
+}
+
+function deleteHomePage() {
+  mainHtmlElement.children[0].remove();
 }
 
 function displayHomePage() {
@@ -231,6 +236,7 @@ function generateHomePageEvents() {
   startQuizButtonElement = document.querySelector(".start-quiz-button");
 
   // ****** Event Listeners ******
+  // Select all buttons logic for adding checked styles in all buttons from that column
   selectAllButtonElements.forEach((selectAllButton) => {
     selectAllButton.addEventListener("click", function (e) {
       const selectedColumn =
@@ -280,7 +286,3 @@ function generateHomePageEvents() {
   // Start Quiz Button
   startQuizButtonElement.addEventListener("click", displayQuizBoxes);
 }
-
-// ******* Event Listeners *******
-
-// Select all buttons logic for adding checked styles in all buttons from that column
