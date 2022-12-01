@@ -1,0 +1,16 @@
+.kana-column-options {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.column-options-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}

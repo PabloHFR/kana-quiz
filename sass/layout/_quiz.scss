@@ -1,0 +1,12 @@
+.quiz-section {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.quiz-boxes-list {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
