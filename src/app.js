@@ -305,14 +305,12 @@ function generateHomePageEvents() {
     hiraganaOptionButtonElement.classList.add("checked-kana");
     katakanaOptionButtonElement.classList.remove("checked-kana");
     isHiragana = true;
-    console.log(isHiragana);
   });
 
   katakanaOptionButtonElement.addEventListener("click", function () {
     katakanaOptionButtonElement.classList.add("checked-kana");
     hiraganaOptionButtonElement.classList.remove("checked-kana");
     isHiragana = false;
-    console.log(isHiragana);
   });
 
   // Start Quiz Button
