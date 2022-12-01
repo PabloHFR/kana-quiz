@@ -2,7 +2,7 @@
   "name": "kana-quiz",
   "version": "1.0.0",
   "description": "Application to learn japanese kana",
-  "main": "src/app.js",
+  "default": "index.html",
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html --dist-dir ./dist"
