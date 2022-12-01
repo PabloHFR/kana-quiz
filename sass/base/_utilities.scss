@@ -1,0 +1,19 @@
+.checked-all,
+.checked-kana,
+.checked-column {
+  background-color: $color-main-blue;
+  color: $color-white;
+}
+
+.correct {
+  background-color: $color-green;
+
+  input {
+    color: $color-medium-grey;
+    pointer-events: none;
+  }
+}
+
+.wrong {
+  background-color: $color-red;
+}

@@ -1,0 +1,31 @@
+.kana-option-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  cursor: pointer;
+
+  &--hiragana,
+  &--katakana {
+    @extend %basic-button;
+    padding: 1.5rem 12rem;
+  }
+}
+
+.select-all-button {
+  @extend %basic-button;
+}
+
+.column-options-grid--button {
+  @extend %basic-button;
+  width: 22rem;
+  padding: 1.8rem 0rem;
+  margin: 0;
+}
+
+.start-quiz-button {
+  @extend %basic-button;
+  display: block;
+  padding: 1.5rem 12rem;
+  margin: 0 auto;
+  text-align: center;
+}
